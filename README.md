@@ -622,6 +622,14 @@ Throughput. To have good throughput, the upload stream should be routed to an un
 
 <details>
 <summary>Explain Spine & Leaf</summary><br><b>
+"Spine & Leaf" is a networking topology commonly used in data center environments to connect multiple switches and manage network traffic efficiently. It is also known as "spine-leaf" architecture or "leaf-spine" topology. This design provides high bandwidth, low latency, and scalability, making it ideal for modern data centers handling large volumes of data and traffic.
+
+Within a Spine & Leaf network there are two main tipology of switches:
+
+* Spine Switches: Spine switches are high-performance switches arranged in a spine layer. These switches act as the core of the network and are typically interconnected with each leaf switch. Each spine switch is connected to all the leaf switches in the data center.
+* Leaf Switches: Leaf switches are connected to end devices like servers, storage arrays, and other networking equipment. Each leaf switch is connected to every spine switch in the data center. This creates a non-blocking, full-mesh connectivity between leaf and spine switches, ensuring any leaf switch can communicate with any other leaf switch with maximum throughput.
+
+The Spine & Leaf architecture has become increasingly popular in data centers due to its ability to handle the demands of modern cloud computing, virtualization, and big data applications, providing a scalable, high-performance, and reliable network infrastructure
 </b></details>
 
 <details>
@@ -3307,7 +3315,9 @@ Bonus: extract the last word of each line
 ## System Design
 
 <details>
-<summary>Explain what is a "Single point of failure"?</summary><br><b>
+<summary>Explain what a "single point of failure" is. </summary><br><b>
+A "single point of failure", in a system or organization, if it were to fail would cause the entire system to fail or significantly disrupt it's operation. In other words, it is a vulnerability where there
+is no backup in place to compensate for the failure.
 </b></details>
 
 <details>
@@ -3334,10 +3344,34 @@ In multi-CDN, content is distributed across multiple different CDNs, each might 
 
 <details>
 <summary>Explain "3-Tier Architecture" (including pros and cons)</summary><br><b>
+A "3-Tier Architecture" is a pattern used in software development for designing and structuring applications. It divides the application into 3 interconnected layers: Presentation, Business logic and Data storage.  
+PROS: 
+* Scalability
+* Security
+* Reusability
+CONS:
+* Complexity
+* Performance overhead
+* Cost and development time
 </b></details>
 
 <details>
-<summary>Explain Mono-repo vs. Multi-repo. What are the cons and pros of each approach?</summary><br><b>
+<summary>Explain Mono-repo vs. Multi-repo.What are the cons and pros of each approach?</summary><br><b>
+In a Mono-repo, all the code for an organization is stored in a single,centralized repository.
+PROS (Mono-repo):
+* Unified tooling
+* Code Sharing
+CONS (Mono-repo):
+* Increased complexity
+* Slower cloning
+
+In a Multi-repo setup, each component is stored in it's own separate repository. Each repository has it's own version control history.
+PROS (Multi-repo):
+* Simpler to manage
+* Different teams and developers can work on different parts of the project independently, making parallel development easier.
+CONS (Multi-repo):
+* Code duplication
+* Integration challenges
 </b></details>
 
 <details>
@@ -3346,6 +3380,7 @@ In multi-CDN, content is distributed across multiple different CDNs, each might 
 * Not suitable for frequent code changes and the ability to deploy new features
 * Not designed for today's infrastructure (like public clouds)
 * Scaling a team to work monolithic architecture is more challenging
+* If a single component in this architecture fails, then the entire application fails.
 </b></details>
 
 <details>
@@ -3357,16 +3392,17 @@ In multi-CDN, content is distributed across multiple different CDNs, each might 
 
 <details>
 <summary>What's a service mesh?</summary><br><b>
-
-[This article](https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh) provides a great explanation.
+It is a layer that facilitates communication management and control between microservices in a containerized application. It handles tasks such as load balancing, encryption, and monitoring.
 </b></details>
 
 <details>
 <summary>Explain "Loose Coupling"</summary><br><b>
+In "Loose Coupling", components of a system communicate with each other with a little understanding of each other's internal workings. This improves scalability and ease of modification in complex systems.
 </b></details>
 
 <details>
 <summary>What is a message queue? When is it used?</summary><br><b>
+It is a communication mechanism used in distributed systems to enable asynchronous communication between different components. It is generally used when the systems use a microservices approach.
 </b></details>
 
 #### Scalability
